@@ -1,0 +1,185 @@
+import { useState, useEffect } from 'react';
+import { format } from 'date-fns';
+import { 
+  indexBeritas, 
+  createBeritas, 
+  updateBeritas, 
+  deleteBeritas 
+} from '../../api/apiBerita';
+
+const BeritaManagement = () => {
+  const [beritas, setBeritas] = useState([]);
+  const [newBerita, setNewBerita] = useState({
+      judul_berita: '',
+      deskripsi: '',
+      tanggal: format(new Date(), 'dd-MM-yyyy')
+  });
+  const [editingBerita, setEditingBerita] = useState(null);
+  const [editedBerita, setEditedBerita] = useState({
+      judul_berita: '',
+      deskripsi: '',
+      tanggal: format(new Date(), 'dd-MM-yyyy')
+  });
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+      fetchBeritas();
+  }, []);
+
+  const fetchBeritas = async (query = '') => {
+      try {
+          const data = await indexBeritas(query);
+          setBeritas(data);
+      } catch (error) {
+          console.error('Error fetching beritas:', error);
+      }
+  };
+
+  const handleCreateBerita = async () => {
+    const formattedDate = format(new Date(), 'yyyy-MM-dd');
+
+    const beritaToCreate = { ...newBerita, tanggal: formattedDate };
+
+    if (!beritaToCreate.judul_berita || !beritaToCreate.deskripsi || !beritaToCreate.tanggal) {
+        console.error('All fields are required');
+        return;
+    }
+
+    try {
+        await createBeritas(beritaToCreate);
+        setNewBerita({ judul_berita: '', deskripsi: '', tanggal: format(new Date(), 'dd-MM-yyyy') });
+        fetchBeritas();
+    } catch (error) {
+        console.error('Error creating berita:', error);
+    }
+};
+
+
+
+  const handleUpdateBerita = async (id) => {
+      try {
+          await updateBeritas(id, editedBerita);
+          setEditingBerita(null);
+          setEditedBerita({ judul_berita: '', deskripsi: '', tanggal: format(new Date(), 'dd-MM-yyyy') });
+          fetchBeritas();
+      } catch (error) {
+          console.error('Error updating berita:', error);
+      }
+  };
+
+  const handleDeleteBerita = async (id) => {
+      try {
+          await deleteBeritas(id);
+          setBeritas(prevBeritas => prevBeritas.filter(berita => berita.id_berita !== id));
+      } catch (error) {
+          console.error('Error deleting berita:', error);
+      }
+  };
+
+  const handleSearch = () => {
+      fetchBeritas(searchQuery);
+  };
+
+  return (
+      <div className="container mx-auto p-10 max-w-5xl">
+          <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+              <h2 className="text-3xl font-bold mb-4">Berita</h2>
+              <p className="text-gray-600">Selamat datang di halaman pengelolaan Berita.</p>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+              <h3 className="text-lg font-semibold mb-4">List Berita</h3>
+              <div className="flex items-center mb-4">
+                  <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search Berita..."
+                      className="mr-4 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                  <button onClick={handleSearch} className="bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300">Search</button>
+              </div>
+              <ul className="divide-y divide-gray-200">
+                  {beritas.map(berita => (
+                      <li key={berita.id_berita} className="py-4 flex justify-between items-start">
+                          {editingBerita === berita.id_berita ? (
+                              <div className="flex-grow flex flex-col items-start space-y-2">
+                                  <input
+                                      type="text"
+                                      value={editedBerita.judul_berita}
+                                      onChange={(e) => setEditedBerita({ ...editedBerita, judul_berita: e.target.value })}
+                                      placeholder="Judul Berita"
+                                      className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 w-full"
+                                  />
+                                  <textarea
+                                      value={editedBerita.deskripsi}
+                                      onChange={(e) => setEditedBerita({ ...editedBerita, deskripsi: e.target.value })}
+                                      placeholder="Deskripsi"
+                                      className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none w-full"
+                                      rows={4}
+                                      cols={40}
+                                  />
+                                  <input
+                                      type="text"
+                                      value={format(new Date(editedBerita.tanggal), 'dd-MM-yyyy')}
+                                      disabled
+                                      className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                  />
+                                  <button onClick={() => handleUpdateBerita(berita.id_berita)} className="bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300">Save</button>
+                              </div>
+                          ) : (
+                              <div className="flex-grow flex items-center justify-between">
+                                  <div>
+                                      <div className="font-semibold">{berita.judul_berita}</div>
+                                      <div className="text-gray-600">{berita.deskripsi}</div>
+                                      <div className="text-gray-400 text-sm">{format(new Date(berita.tanggal), 'dd-MM-yyyy')}</div>
+                                  </div>
+                                  <div className="space-x-2">
+                                      <button onClick={() => {
+                                          setEditingBerita(berita.id_berita);
+                                          setEditedBerita({
+                                              judul_berita: berita.judul_berita,
+                                              deskripsi: berita.deskripsi,
+                                              tanggal: berita.tanggal
+                                          });
+                                      }} className="bg-yellow-600 hover:bg-yellow-800 text-white p-2 rounded-lg transition duration-300">Edit</button>
+                                      <button onClick={() => handleDeleteBerita(berita.id_berita)} className="bg-customcp17 hover:bg-red-700 text-white p-2 rounded-lg transition duration-300">Delete</button>
+                                  </div>
+                              </div>
+                          )}
+                      </li>
+                  ))}
+              </ul>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+              <h3 className="text-lg font-semibold mb-4">Buat Berita Baru</h3>
+              <div className="space-y-2">
+                  <input
+                      type="text"
+                      value={newBerita.judul_berita}
+                      onChange={(e) => setNewBerita({ ...newBerita, judul_berita: e.target.value })}
+                      placeholder="Judul Berita"
+                      className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                  <textarea
+                      value={newBerita.deskripsi}
+                      onChange={(e) => setNewBerita({ ...newBerita, deskripsi: e.target.value })}
+                      placeholder="Deskripsi"
+                      className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+                      rows={4}
+                      cols={40}
+                  />
+                  <input
+                      type="text"
+                      value={format(new Date(newBerita.tanggal), 'dd-MM-yyyy')}
+                      disabled
+                      className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                  <button onClick={handleCreateBerita} className="w-full bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300">Create</button>
+              </div>
+          </div>
+      </div>
+  );
+}
+
+export default BeritaManagement;
