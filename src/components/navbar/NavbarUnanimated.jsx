@@ -28,7 +28,6 @@ const NavbarUnanimated = () => {
             {/* logo mcs */}
             <img src={logo} alt="Logo" className="flex w-24"/>
 
-
             {/* ini buttonnya */}
             <div className="md:hidden">
               <button

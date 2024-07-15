@@ -6,6 +6,7 @@ import {
   deleteUmkm, 
   updateStatusUmkm 
 } from '../../api/apiUmkm';
+import { toast } from 'react-toastify';
 
 const UmkmManagement = () => {
   const [umkms, setUmkms] = useState([]);
@@ -60,8 +61,10 @@ const UmkmManagement = () => {
         fileInputRef.current.value = null;
       }
       fetchUmkms();
+      toast.success('UMKM berhasil dibuat!');
     } catch (error) {
       console.error('Error creating UMKM:', error);
+      toast.error('Error dalam membuat UMKM.');
     }
   };
 
@@ -81,8 +84,10 @@ const UmkmManagement = () => {
       setEditingUmkm(null);
       setEditedUmkm({ nama_umkm: '', deskripsi_umkm: '', pemilik: '', foto_umkm: null });
       fetchUmkms();
+      toast.success('UMKM berhasil diupdate!');
     } catch (error) {
       console.error('Error updating UMKM:', error);
+      toast.error('Error dalam mengupdate UMKM!');
     }
   };
 
@@ -90,8 +95,10 @@ const UmkmManagement = () => {
     try {
       await deleteUmkm(id);
       setUmkms(prevUmkms => prevUmkms.filter(umkm => umkm.id_umkm !== id));
+      toast.success('UMKM berhasil dihapus!');
     } catch (error) {
       console.error('Error deleting UMKM:', error);
+      toast.error('Error dalam menghapus UMKM!');
     }
   };
 
@@ -103,8 +110,10 @@ const UmkmManagement = () => {
     try {
       await updateStatusUmkm(id);
       fetchUmkms();
+      toast.success('Berita mengubah status UMKM!');
     } catch (error) {
       console.error('Error changing UMKM status:', error);
+      toast.error('Error mengupdate status UMKM!');
     }
   };
 

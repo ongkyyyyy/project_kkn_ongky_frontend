@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
+import { toast } from 'react-toastify';
 import { 
   indexBeritas, 
   createBeritas, 
@@ -36,12 +37,12 @@ const BeritaManagement = () => {
   };
 
   const handleCreateBerita = async () => {
-    const formattedDate = format(new Date(), 'yyyy-MM-dd');
+    const formattedDate = format(parse(newBerita.tanggal, 'dd-MM-yyyy', new Date()), 'yyyy-MM-dd');
 
     const beritaToCreate = { ...newBerita, tanggal: formattedDate };
 
     if (!beritaToCreate.judul_berita || !beritaToCreate.deskripsi || !beritaToCreate.tanggal) {
-        console.error('All fields are required');
+        toast.error('Semua atribut perlu diisi!');
         return;
     }
 
@@ -49,29 +50,36 @@ const BeritaManagement = () => {
         await createBeritas(beritaToCreate);
         setNewBerita({ judul_berita: '', deskripsi: '', tanggal: format(new Date(), 'dd-MM-yyyy') });
         fetchBeritas();
+        toast.success('Berita berhasil dibuat!');
     } catch (error) {
+        toast.error('Error dalam membuat berita.');
         console.error('Error creating berita:', error);
     }
 };
 
 
+const handleUpdateBerita = async (id) => {
+    const formattedDate = format(parse(editedBerita.tanggal, 'dd-MM-yyyy', new Date()), 'yyyy-MM-dd');
+    try {
+        await updateBeritas(id, { ...editedBerita, tanggal: formattedDate });
+        setEditingBerita(null);
+        setEditedBerita({ judul_berita: '', deskripsi: '', tanggal: format(new Date(), 'dd-MM-yyyy') });
+        fetchBeritas();
+        toast.success('Berita berhasil diupdate!');
+    } catch (error) {
+        toast.error('Error dalam mengupdate berita.');
+        console.error('Error updating berita:', error);
+    }
+};
 
-  const handleUpdateBerita = async (id) => {
-      try {
-          await updateBeritas(id, editedBerita);
-          setEditingBerita(null);
-          setEditedBerita({ judul_berita: '', deskripsi: '', tanggal: format(new Date(), 'dd-MM-yyyy') });
-          fetchBeritas();
-      } catch (error) {
-          console.error('Error updating berita:', error);
-      }
-  };
 
   const handleDeleteBerita = async (id) => {
       try {
           await deleteBeritas(id);
           setBeritas(prevBeritas => prevBeritas.filter(berita => berita.id_berita !== id));
+          toast.success('Berita berhasiil dihapus!');
       } catch (error) {
+          toast.error('Error dalam menghapus berita.');
           console.error('Error deleting berita:', error);
       }
   };
@@ -121,8 +129,9 @@ const BeritaManagement = () => {
                                   />
                                   <input
                                       type="text"
-                                      value={format(new Date(editedBerita.tanggal), 'dd-MM-yyyy')}
-                                      disabled
+                                      value={editedBerita.tanggal}
+                                      onChange={(e) => setEditedBerita({ ...editedBerita, tanggal: e.target.value })}
+                                      placeholder="dd-MM-yyyy"
                                       className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                                   />
                                   <button onClick={() => handleUpdateBerita(berita.id_berita)} className="bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300">Save</button>
@@ -140,7 +149,7 @@ const BeritaManagement = () => {
                                           setEditedBerita({
                                               judul_berita: berita.judul_berita,
                                               deskripsi: berita.deskripsi,
-                                              tanggal: berita.tanggal
+                                              tanggal: format(new Date(berita.tanggal), 'dd-MM-yyyy')
                                           });
                                       }} className="bg-yellow-600 hover:bg-yellow-800 text-white p-2 rounded-lg transition duration-300">Edit</button>
                                       <button onClick={() => handleDeleteBerita(berita.id_berita)} className="bg-customcp17 hover:bg-red-700 text-white p-2 rounded-lg transition duration-300">Delete</button>
@@ -171,8 +180,9 @@ const BeritaManagement = () => {
                   />
                   <input
                       type="text"
-                      value={format(new Date(newBerita.tanggal), 'dd-MM-yyyy')}
-                      disabled
+                      value={newBerita.tanggal}
+                      onChange={(e) => setNewBerita({ ...newBerita, tanggal: e.target.value })}
+                      placeholder="dd-MM-yyyy"
                       className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
                   <button onClick={handleCreateBerita} className="w-full bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300">Create</button>

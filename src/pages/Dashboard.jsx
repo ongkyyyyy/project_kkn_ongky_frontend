@@ -1,42 +1,13 @@
 import "react-multi-carousel/lib/styles.css";
-import { useState, useEffect } from 'react';
-import { indexUmkm } from '../api/apiUmkm';
-import { indexBeritas } from '../api/apiBerita';
 import senam from '../assets/img/senam.jpg';
 import mancing from '../assets/img/mancing.jpg';
-import KegiatanGallery from '../components/gallery/kegiatan';
-import UMKMs from '../components/gallery/umkms';
+import KegiatanGallery from '../components/sections/kegiatan';
+import UMKMs from '../components/sections/umkms';
 
 function Dashboard() {
-  const [beritas, setBeritas] = useState([]);
-  const [umkms, setUmkms] = useState([]);
-
-  useEffect(() => {
-    fetchBeritas();
-    fetchUmkms();
-  }, []);
-
-  const fetchBeritas = async (query = '') => {
-    try {
-      const data = await indexBeritas(query);
-      setBeritas(data);
-    } catch (error) {
-      console.error('Error fetching beritas:', error);
-    }
-  };
-
-  const fetchUmkms = async (query = '') => {
-    try {
-      const data = await indexUmkm(query);
-      setUmkms(data);
-    } catch (error) {
-      console.error('Error fetching UMKM:', error);
-    }
-  };
 
   return (
     <>
-      <div className='pt-16'></div>
       <div className='flex items-center justify-center h-96 bg-fixed bg-parallax'>
         <h1 className='text-5xl text-white uppercase'>Dompol</h1>
       </div>
@@ -73,14 +44,16 @@ function Dashboard() {
           </div>
           <div className='basis-7/12 mx-2 ps-5 mb-9 pe-9 me-9 lg:mb-5'>
             <div className='flex flex-col gap-2'>
-              <span>
-                <p className='text-slate-400 m-0 p-0 mt-5'>
-                  Our specialized learning materials encourage hands-on learning, promoting exploration and independent thinking.
+              <div className="text-center">
+                <p className="mt-2 text-3xl leading-8 font-extrabold font-poppins tracking-tight text-customcp11 sm:text-4xl">
+                  Sejarah Padukuhan Dompol
                 </p>
-                <p className='text-slate-400 m-0 p-0 mt-2'>
-                  These materials offer children opportunities for success in grasping abstract concepts, such as shapes and sizes.
+                <p className="mt-4 max-w-2xl text-md text-gray-500 lg:mx-auto">
+                  UMKM berperan penting dalam ekonomi lokal dengan menyediakan lapangan kerja dan meningkatkan pendapatan 
+                  melalui usaha seperti kerajinan tangan dan pengolahan makanan tradisional. Meskipun menghadapi tantangan 
+                  seperti akses pasar terbatas, UMKM ini terus berkembang melalui inovasi produk dan dukungan dari pemerintah daerah.
                 </p>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -88,9 +61,8 @@ function Dashboard() {
       <section className="py-10 px-4 md:px-8 lg:px-16 overflow-hidden">
         <KegiatanGallery />
       </section>
-      <section>
         <UMKMs />
-      </section>
+
     </>
   );
 }

@@ -47,11 +47,15 @@ export default function KegiatanGallery() {
 
     return (
         <>
-            <h1 ref={component3Ref} className="text-4xl text-center font-semibold event">Kegiatan - kegiatan</h1>
-            <div className="text-center event">
-                <h1 className="text-gray-500 pt-4 pb-1">
-                    Ikan hiu makan tomat, 
-                </h1>
+            <div ref={component3Ref} className="text-center">
+                <p className="mt-2 text-3xl leading-8 font-extrabold font-poppins tracking-tight text-customcp11 sm:text-4xl">
+                    Umkm Di Padukuhan Dompol
+                </p>
+                <p className="mt-4 max-w-2xl text-md text-gray-500 lg:mx-auto">
+                    UMKM berperan penting dalam ekonomi lokal dengan menyediakan lapangan kerja dan meningkatkan pendapatan 
+                    melalui usaha seperti kerajinan tangan dan pengolahan makanan tradisional. Meskipun menghadapi tantangan 
+                    seperti akses pasar terbatas, UMKM ini terus berkembang melalui inovasi produk dan dukungan dari pemerintah daerah.
+                </p>
             </div>
             <Swiper
                 slidesPerView={'auto'}

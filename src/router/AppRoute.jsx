@@ -6,6 +6,8 @@ import LoginAdmin from '../pages/Admin/LoginAdmin';
 import DashboardAdmin from '../pages/Admin/DashboardAdmin';
 import BeritaManagement from '../pages/Admin/BeritaManagement';
 import UmkmManagement from '../pages/Admin/UmkmManagement';
+import BeritaCustomer from '../pages/Customer/BeritaCustomer';
+import UmkmCustomer from '../pages/Customer/UmkmCustomer';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
         index: true,
         element: <Dashboard />,
       },
+      {
+        path: 'beritas',
+        element: <BeritaCustomer />,
+      },
+      {
+        path: 'umkms',
+        element: <UmkmCustomer/>,
+      }
     ],
   },
   {
