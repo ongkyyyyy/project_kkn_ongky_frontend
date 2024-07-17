@@ -70,7 +70,6 @@ const Footer = () => {
                     ))}
                 </ul>
 
-
             </div>
 
             {/* ini icon2 */}
@@ -84,7 +83,7 @@ const Footer = () => {
                                 href={socialIcon.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 cursor-pointer inline-flex items-center rounded-full bg-dark-brown mx-1.5 text-xl 
+                                className="p-2 cursor-pointer inline-flex items-center rounded-full bg-dark-brown mx-1.5 text-xl
                                 hover:text-customcp17 duration-300"
                             >
                                 {socialIcon.icon}

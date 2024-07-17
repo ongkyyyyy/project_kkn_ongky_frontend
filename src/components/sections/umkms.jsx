@@ -30,7 +30,7 @@ const UMKMs = () => {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 3
+      items: 2
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -42,7 +42,7 @@ const UMKMs = () => {
     <div className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <p className="mt-2 text-3xl leading-8 font-extrabold font-poppins tracking-tight text-customcp11 sm:text-4xl">
+          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-customcp11 sm:text-4xl">
             Umkm Di Padukuhan Dompol
           </p>
           <p className="mt-4 max-w-2xl text-md text-gray-500 lg:mx-auto">
@@ -51,7 +51,7 @@ const UMKMs = () => {
             seperti akses pasar terbatas, UMKM ini terus berkembang melalui inovasi produk dan dukungan dari pemerintah daerah.
           </p>
         </div>
-        <div className="mt-16 mb-10">
+        <div className="mt-16 mb-10 relative overflow-visible">
           <Carousel 
             responsive={responsive}
             swipeable={true}
@@ -68,15 +68,17 @@ const UMKMs = () => {
             itemClass="carousel-item-padding-40-px"
           >
             {umkms.map((umkm, index) => (
-              <div key={index} className="relative flex flex-col items-center bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                <img 
-                  src={`http://127.0.0.1:8000/storage/${umkm.foto_umkm}`} 
-                  alt={`UMKM ${index}`} 
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold pb-2">{umkm.nama_umkm}</h3>
-                  <p className="mt-1 text-sm text-gray-600">{umkm.deskripsi_umkm}</p>
+              <div key={index} className="relative z-10 p-2">
+                <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs mx-auto">
+                  <img 
+                    src={`http://127.0.0.1:8000/storage/${umkm.foto_umkm}`} 
+                    alt={`UMKM ${index}`} 
+                    className="w-full h-32 object-cover"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold pb-2">{umkm.nama_umkm}</h3>
+                    <p className="mt-1 text-sm text-gray-600">{umkm.deskripsi_umkm}</p>
+                  </div>
                 </div>
               </div>
             ))}

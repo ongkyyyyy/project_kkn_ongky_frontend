@@ -22,13 +22,19 @@ export default {
         poppinsserif: ['Poppins', 'serif'],
         inter: ['Inter', 'serif'],
         caecilia: ['Caecilia', 'serif'],
-        'caecilia-bold': ['Caecilia-Bold', 'sans-serif'], 
+        'caecilia-bold': ['Caecilia-Bold', 'serif'], 
+        playwrite: ['"Playwrite Danmark Uloopet"', 'serif'],
+        brush: ['Dancing Script', 'serif'],
+        'roboto-slab': ['Roboto Slab', 'serif'],
       },
       fontWeight: {
         'caecilia-bold': '700', 
       },
       backgroundImage: {
         'parallax' : 'url(../src/assets/img/dashboard_image.jpg)',
+        'blue-carving' : 'url(../src/assets/img/blueCarving.jpg)',
+        'orange-carving' : 'url(../src/assets/img/orangeCarving.jpeg)',
+        'orange-carving2' : 'url(../src/assets/img/orangeCarving2.jpeg)'
       }
     },
   },

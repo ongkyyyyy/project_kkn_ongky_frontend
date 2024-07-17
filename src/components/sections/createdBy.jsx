@@ -1,13 +1,17 @@
-import { Parallax } from 'react-scroll-parallax';
-import 'react-multi-carousel/lib/styles.css';
+import dompol38fix from '../../assets/img/dompol38fix.png'; 
 
-const createdBy = () => {
-  
+const CreatedBy = () => {
   return (
-    <Parallax speed={-5}>
-        <div className="slow" id=''/>
-    </Parallax>
+    <>
+      <div className="flex">
+        <img 
+          src={dompol38fix} 
+          alt="Created by" 
+          className="parallax-img object-cover w-full h-full"
+        />
+      </div>
+    </>
   );
 }
 
-export default createdBy;
+export default CreatedBy;

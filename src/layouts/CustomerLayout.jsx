@@ -1,14 +1,17 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import NavbarUnanimated from "../components/navbar/NavbarUnanimated";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 
 function CustomerLayout() {
+  const location = useLocation();
+
+  const shouldUseUnanimatedNavbar = location.pathname.includes("/beritas") || location.pathname.includes("/umkms");
 
   return (
     <>
       <div>
-        <Navbar />
+        {shouldUseUnanimatedNavbar ? <NavbarUnanimated /> : <Navbar />}
         <div className="overflow-x-hidden">
           <Outlet />
         </div>
