@@ -78,7 +78,9 @@ function UmkmCustomer() {
               <h4 className="text-xl font-bold mb-2">{umkm.nama_umkm}</h4>
               <p className="text-gray-700 mb-2">{umkm.deskripsi_umkm}</p>
               <p className="text-gray-600">{umkm.pemilik}</p>
-              <p className="text-gray-600">{umkm.status_umkm}</p>
+              <p className={`mb-2 ${umkm.status_umkm === 1 ? 'text-green-500' : 'text-red-500'}`}>
+                {umkm.status_umkm === 1 ? 'Buka' : 'Tutup'}
+              </p>
             </div>
           ))}
         </div>
@@ -109,7 +111,9 @@ function UmkmCustomer() {
                 <h4 className="text-xl font-bold mb-2">{umkm.nama_umkm}</h4>
                 <p className="text-gray-700 mb-2">{umkm.deskripsi_umkm}</p>
                 <p className="text-gray-600">{umkm.pemilik}</p>
-                <p className="text-gray-600">{umkm.status_umkm}</p>
+                <p className={`mb-2 ${umkm.status_umkm === 1 ? 'text-green-500' : 'text-red-500'}`}>
+                  {umkm.status_umkm === 1 ? 'Buka' : 'Tutup'}
+                </p>
               </div>
             ))}
         </div>

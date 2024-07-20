@@ -187,7 +187,9 @@ const UmkmManagement = () => {
                     <div className="font-semibold">{umkm.nama_umkm}</div>
                     <div className="text-gray-600">{umkm.deskripsi_umkm}</div>
                     <div className="text-gray-600">{umkm.pemilik}</div>
-                    <div className="text-gray-600">{umkm.status_umkm === 1 ? 'Aktif' : 'Tidak Aktif'}</div>
+                    <div className={`text-gray-600 ${umkm.status_umkm === 1 ? 'text-green-500' : 'text-red-500'}`}>
+                      {umkm.status_umkm === 1 ? 'Buka' : 'Tutup'}
+                    </div>
                     <img
                       src={`http://127.0.0.1:8000/storage/${umkm.foto_umkm}`}
                       alt={umkm.foto_umkm}

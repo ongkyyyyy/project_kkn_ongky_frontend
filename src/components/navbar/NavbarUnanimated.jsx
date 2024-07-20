@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useLocation } from "react-router-dom";
 import { IoMenu, IoClose } from 'react-icons/io5';
 import logo from '../../assets/img/logo.png';
+import { Link } from "react-scroll";
 
 const NavbarUnanimated = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,6 +19,9 @@ const NavbarUnanimated = () => {
     { name: 'Berita', link: '/beritas' },
     { name: 'UMKM', link: '/umkms' }
   ];
+
+  const location = useLocation();
+  const isHomeRoute = location.pathname === "/";
   
   return (
     <> 
@@ -39,6 +44,13 @@ const NavbarUnanimated = () => {
             </div>
           </div>
 
+          <div className="pl-36 hidden md:flex justify-center flex-1">
+            <Link to="sejarah" smooth={true} duration={500} className='text-customcp17 cursor-pointer mx-4'>Sejarah</Link>
+            <Link to="lokasi" smooth={true} duration={500} className='text-customcp17 cursor-pointer mx-4'>Lokasi</Link>
+            <Link to="umkm" smooth={true} duration={500} className='text-customcp17 cursor-pointer mx-4'>UMKM</Link>
+            <Link to="kegiatan" smooth={true} duration={500} className='text-customcp17 cursor-pointer mx-4'>Kegiatan</Link>
+          </div>
+          
           {/* ini menu2nya */}
           <ul className={`md:flex ${menuOpen ? 'block' : 'hidden'} md:items-center w-full md:w-auto text-center ${menuAnimation}`}>
             {Links.map((link, index) => (

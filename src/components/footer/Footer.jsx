@@ -11,7 +11,8 @@ const Footer = () => {
 
     const Navigation = [
         { name: 'Home', link: '/' },
-        { name: 'Berita', link: '/berita' }
+        { name: 'Berita', link: '/beritas' },
+        { name: 'UMKM', link: '/umkms' }
     ];
 
     const Contacts = [
@@ -32,7 +33,7 @@ const Footer = () => {
 
                 {/* Navigasi */}
                 <ul className="col-span-1">
-                    <h1 className="mb-1 font-caecilia-bold text-xl text-customcp13">Navigation</h1>
+                    <h1 className="mb-1 font-caecilia-bold text-xl text-customcp13">Navigasi</h1>
                     {Navigation.map((menu) => (
                         <li key={menu.name}>
                             <a className="text-customcp12 hover:text-customcp17 font-poppins
@@ -45,7 +46,7 @@ const Footer = () => {
 
                 {/* Kata-kata Indah */}
                 <ul className="col-span-1 pr-11">
-                    <h1 className="mb-1 font-caecilia-bold text-xl text-customcp13">Have a question?</h1>
+                    <h1 className="mb-1 font-caecilia-bold text-xl text-customcp13">Memiliki pertanyaan?</h1>
                     <li>
                         <p className="text-customcp12 hover:text-customcp17 duration-300 font-poppins
                         text-sm cursor-pointer leading-6">
@@ -60,7 +61,7 @@ const Footer = () => {
 
                 {/* Contacts */}
                 <ul className="col-span-1">
-                    <h1 className="mb-1 font-caecilia-bold text-xl text-customcp13 font-">Contact Us</h1>
+                    <h1 className="mb-1 font-caecilia-bold text-xl text-customcp13 font-">Kontak Kita</h1>
                     {Contacts.map((menu) => (
                         <li key={menu.name}>
                             <p className="text-customcp12 hover:text-customcp17 font-poppins duration-300 text-sm cursor-pointer leading-6">
@@ -74,7 +75,7 @@ const Footer = () => {
 
             {/* ini icon2 */}
             <div className="flex justify-between items-center text-center pt-5 text-[#f7f4e1] text-sm pb-4 bg-customcp16">
-                <span className="ps-7 text-customcp12 font-poppins">© Copyright AB 2024</span>
+                <span className="ps-7 text-customcp12 font-poppins">© Copyright Dompol 2024</span>
                 <div className="pr-5">
                     {window.location.hash === '' && (
                         Icons.map((socialIcon, index) => (

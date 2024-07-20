@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <> 
     {/* Ini navbarnya */}
-      <div className={`bg-transparent fixed w-full z-10 pt-3 ${navbarVisible ? 'opacity-100 translate-y-0 ' : 'opacity-0 translate-y-5'} duration-500 ease-in-out`}>
+      <div className={`bg-transparent fixed w-full z-10 pt-3 pb-3 ${navbarVisible ? 'opacity-100 translate-y-0 ' : 'opacity-0 translate-y-5'} duration-500 ease-in-out`}>
         <div className="md:px-8 flex justify-between items-center flex-col md:flex-row">
           <div className="flex justify-between w-full md:w-auto items-center md:mb-0">
           

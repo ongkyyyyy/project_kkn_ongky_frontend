@@ -2,13 +2,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html", 
+    "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
       colors: {
-        //Color palette 1
         customcp11: '#084c5c',
         customcp12: '#ffffff',
         customcp13: '#80a4ac',
@@ -31,10 +30,13 @@ export default {
         'caecilia-bold': '700', 
       },
       backgroundImage: {
-        'parallax' : 'url(../src/assets/img/dashboard_image.jpg)',
-        'blue-carving' : 'url(../src/assets/img/blueCarving.jpg)',
-        'orange-carving' : 'url(../src/assets/img/orangeCarving.jpeg)',
-        'orange-carving2' : 'url(../src/assets/img/orangeCarving2.jpeg)'
+        'parallaxLokasi' : 'url(../src/assets/img/lokasi.jpg)',
+        'parallaxSejarah' : 'url(../src/assets/img/sejarah.jpg)',
+        'parallaxUmkm': 'url(../src/assets/img/umkm.jpg)',
+        'parallax': 'url(../src/assets/img/dashboard_image.jpg)',
+        'blue-carving': 'url(../src/assets/img/blueCarving.jpg)',
+        'orange-carving': 'url(../src/assets/img/orangeCarving.jpeg)',
+        'orange-carving2': 'url(../src/assets/img/orangeCarving2.jpeg)',
       }
     },
   },
