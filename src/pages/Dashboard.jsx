@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, lazy } from "react";
 import "react-multi-carousel/lib/styles.css";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { Element, animateScroll as scroll } from "react-scroll";
@@ -33,37 +33,30 @@ const Dashboard = () => {
     <ParallaxProvider>
       <div className='flex flex-col gap-7 overflow-hidden'>
         <Element name="sejarah">
-          <Suspense fallback={<div>Loading...</div>}>
             <section className="h-full">
               <Sejarah />
             </section>
-          </Suspense>
         </Element>
 
         <div className="pt-32"></div>
 
         <Element name="lokasi">
-          <Suspense fallback={<div>Loading...</div>}>
             <section className="h-full">
               <Lokasi />
             </section>
-          </Suspense>
         </Element>
 
-        <div className="pt-32"></div>
+        <div className="pt-48"></div>
 
         <Element name="umkm">
-          <Suspense fallback={<div>Loading...</div>}>
             <section className='h-full'>
               <UMKMs />
             </section>
-          </Suspense>
         </Element>
 
         <div className="pt-56"></div>
 
         <Element name="kegiatan">
-          <Suspense fallback={<div>Loading...</div>}>
             <section className='px-4 md:px-8 lg:px-16 h-full'>
               <div className='flex flex-col gap-2'>
                 <p className='text-3xl font-extrabold font-poppins tracking-tight text-customcp11 sm:text-4xl'>
@@ -85,16 +78,13 @@ const Dashboard = () => {
                 </div>
               </div>
             </section>
-          </Suspense>
         </Element>
 
         <section className='px-4 pt-12 md:px-8 lg:px-16'>
-          <Suspense fallback={<div>Loading...</div>}>
             <p className='text-3xl font-extrabold font-poppins tracking-tight text-customcp11 sm:text-4xl text-center pb-8'>
               Dibuat Oleh Kelompok 38 (Dompol) KKN 85
             </p>
             <CreatedBy />
-          </Suspense>
         </section>
       </div>
 

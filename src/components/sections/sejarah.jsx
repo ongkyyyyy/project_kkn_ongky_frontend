@@ -1,5 +1,3 @@
-import 'react-multi-carousel/lib/styles.css';
-
 const Sejarah = () => {
   return (
     <div className="relative text-center bg-white">

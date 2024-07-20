@@ -42,8 +42,8 @@ const UMKMs = () => {
     <div className="relative text-center bg-white">
       <div className="relative bg-fixed bg-parallaxUmkm bg-cover h-96 text-white shadow-md">
         <div className='flex items-center justify-center inset-0 flex-col h-full'>
-          <h1 className="text-4xl font-bold">UMKM</h1>
-          <p className="text-xl">Berbagai macam UMKM</p>
+          <h1 className="text-4xl font-bold text-white shadow-lg">UMKM</h1>
+          <p className="text-xl text-white shadow-sm">Berbagai macam UMKM</p>
         </div>
       </div>
 
@@ -63,7 +63,7 @@ const UMKMs = () => {
             >
               {umkms.map((umkm, index) => (
                 <div key={index} className="relative z-10 p-4">
-                  <div className="bg-white shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs mx-auto">
+                  <div className="bg-white border-4 border-white shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs mx-auto">
                     <img 
                       src={`http://127.0.0.1:8000/storage/${umkm.foto_umkm}`} 
                       alt={`UMKM ${index}`} 

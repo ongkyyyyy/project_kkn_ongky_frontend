@@ -17,7 +17,7 @@ const NavbarUnanimated = () => {
   let Links = [
     { name: 'Home', link: '/' },
     { name: 'Berita', link: '/beritas' },
-    { name: 'UMKM', link: '/umkms' }
+    { name: 'List   UMKM', link: '/umkms' }
   ];
 
   const location = useLocation();
@@ -25,7 +25,7 @@ const NavbarUnanimated = () => {
   
   return (
     <> 
-    {/* Ini navbarnya */}
+      {/* Ini navbarnya */}
       <div className={`bg-customcp11 fixed w-full z-10 pt-3`}>
         <div className="md:px-12 flex justify-between items-center md:flex-row pb-3">
           <div className="flex justify-between w-full md:w-auto items-center md:mb-0">
@@ -38,20 +38,51 @@ const NavbarUnanimated = () => {
               <button
                 onClick={toggleMenu}
                 className="text-white"
-                >
+              >
                 {menuIcon}
               </button>
             </div>
           </div>
 
-          <div className="pl-36 hidden md:flex justify-center flex-1">
-            <Link to="sejarah" smooth={true} duration={500} className='text-customcp17 cursor-pointer mx-4'>Sejarah</Link>
-            <Link to="lokasi" smooth={true} duration={500} className='text-customcp17 cursor-pointer mx-4'>Lokasi</Link>
-            <Link to="umkm" smooth={true} duration={500} className='text-customcp17 cursor-pointer mx-4'>UMKM</Link>
-            <Link to="kegiatan" smooth={true} duration={500} className='text-customcp17 cursor-pointer mx-4'>Kegiatan</Link>
-          </div>
-          
-          {/* ini menu2nya */}
+          {/* {isHomeRoute && (
+            <div className="pl-40 hidden md:flex justify-center flex-1">
+              <Link 
+                to="sejarah" 
+                smooth={true} 
+                duration={500} 
+                className='text-customcp17 cursor-pointer mx-4 hover:bg-white hover:text-black px-2 py-1 rounded'
+              >
+                Sejarah
+              </Link>
+              <Link 
+                to="lokasi" 
+                smooth={true} 
+                duration={500} 
+                className='text-customcp17 cursor-pointer mx-4 hover:bg-white hover:text-black px-2 py-1 rounded'
+              >
+                Lokasi
+              </Link>
+              <Link 
+                to="umkm" 
+                smooth={true} 
+                duration={500} 
+                className='text-customcp17 cursor-pointer mx-4 hover:bg-white hover:text-black px-2 py-1 rounded'
+              >
+                UMKM
+              </Link>
+              <Link 
+                to="kegiatan" 
+                smooth={true} 
+                duration={500} 
+                className='text-customcp17 cursor-pointer mx-4 hover:bg-white hover:text-black px-2 py-1 rounded'
+              >
+                Kegiatan
+              </Link>
+            </div>
+          )} */}
+
+
+          {/* Menu items */}
           <ul className={`md:flex ${menuOpen ? 'block' : 'hidden'} md:items-center w-full md:w-auto text-center ${menuAnimation}`}>
             {Links.map((link, index) => (
               <li key={index} className={`relative font-semibold md:my-0 md:mx-4 ${location.pathname === '/' ? 'text-customcp12' : 'text-white'}`}>
@@ -63,7 +94,6 @@ const NavbarUnanimated = () => {
           </ul>
         </div>
       </div>
-      
     </>
   );
 };
