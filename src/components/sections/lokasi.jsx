@@ -14,7 +14,7 @@ const Lokasi = () => {
 
       <div className="absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full p-2">
         <div className="max-w-7xl mx-auto">
-          <div className="mt-4 mb-10 relative overflow-hidden">
+          <div className="mt-16 mb-10 relative overflow-hidden">
             <div className="flex flex-wrap justify-center space-x-4">
               <div className="relative z-10 p-4 flex-shrink-0">
                 <div className="bg-white border-4 border-white shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs">

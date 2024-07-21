@@ -1,0 +1,31 @@
+/* scrollbar.css */
+
+/* For Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc; /* light slate color for the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #64748b; /* slate color for the scroll thumb */
+  border-radius: 10px; /* roundness of the scroll thumb */
+  border: 3px solid #f8fafc; /* creates padding around scroll thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; /* darker slate color when hovered */
+}
+
+/* Hide scrollbar arrows in WebKit browsers */
+::-webkit-scrollbar-button {
+  display: none; /* hides the scrollbar buttons */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #64748b #f8fafc; /* slate scroll thumb and light slate track */
+}

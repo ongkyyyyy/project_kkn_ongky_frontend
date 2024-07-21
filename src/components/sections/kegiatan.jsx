@@ -1,104 +1,29 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import ScrollTrigger from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
 import senam from '../../assets/img/senam.jpg';
 import mancing from '../../assets/img/mancing.jpg';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-
-export default function KegiatanGallery() {
-    const data = [
-        senam,
-        mancing,
-        senam,
-        mancing
-    ];
-
-    const component3Ref = useRef();
-
-    useEffect(() => {
-        if (component3Ref.current) {
-            gsap.fromTo(".event", 
-                { opacity: 0, y: 50 }, 
-                {
-                    opacity: 1,
-                    y: 0,
-                    scrollTrigger: {
-                        trigger: component3Ref.current,
-                        scrub: true,
-                        pin: false,
-                        start: 'top 75%',
-                        end: 'top 25%',
-                        toggleActions: 'play none none reverse',
-                    }
-                }
-            );
-        }
-    }, []);
+const Kegiatan = () =>  {
 
     return (
-        <>
-            <div ref={component3Ref} className="text-center">
-                <p className="mt-2 text-3xl leading-8 font-extrabold font-poppins tracking-tight text-customcp11 sm:text-4xl">
-                    Umkm Di Padukuhan Dompol
+        <div className='flex flex-col gap-2'>
+                <p className='text-3xl font-extrabold font-poppins tracking-tight text-customcp11 sm:text-4xl'>
+                  Kegiatan
                 </p>
-                <p className="mt-4 max-w-2xl text-md text-gray-500 lg:mx-auto">
-                    UMKM berperan penting dalam ekonomi lokal dengan menyediakan lapangan kerja dan meningkatkan pendapatan 
-                    melalui usaha seperti kerajinan tangan dan pengolahan makanan tradisional. Meskipun menghadapi tantangan 
-                    seperti akses pasar terbatas, UMKM ini terus berkembang melalui inovasi produk dan dukungan dari pemerintah daerah.
-                </p>
-            </div>
-            <Swiper
-                slidesPerView={'auto'}
-                centeredSlides={true}
-                breakpoints={{
-                    1536: {
-                        spaceBetween: 50
-                    },
-                    1280: {
-                        spaceBetween: 40
-                    },
-                    1024: {
-                        spaceBetween: 60
-                    },
-                    768: {
-                        spaceBetween: 50
-                    },
-                }}
-                spaceBetween={20}
-                navigation={true}
-                rewind={true}
-                pagination={{
-                    clickable: true,
-                }}
-                autoplay={{
-                    delay: 4000,
-                    disableOnInteraction: false, 
-                }}
-                speed={4000} 
-                modules={[Pagination, Navigation, Autoplay]}
-                style={{
-                    overflow: "hidden", 
-                }}
-                className="event"
-            >
-                {data.map((content, index) => (
-                    <SwiperSlide key={index} className="h-full mt-5">
-                        <div className="rounded-3xl pt-5 pb-12 items-center">
-                            <img className="object-cover w-full aspect-video object-center rounded-2xl mx-auto" src={content} alt={index} />
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </>
-    )
-}
+                <div className='flex flex-col md:flex-row gap-5 mt-5'>
+                  <div className='basis-1/3'>
+                    <img className="object-cover h-64 w-full rounded-xl" src={senam} alt="Tourism Spot 1" />
+                    <p className='text-slate-500 mt-2'>Deskripsi singkat tentang tempat wisata 1.</p>
+                  </div>
+                  <div className='basis-1/3'>
+                    <img className="object-cover h-64 w-full rounded-xl" src={mancing} alt="Tourism Spot 2" />
+                    <p className='text-slate-500 mt-2'>Deskripsi singkat tentang tempat wisata 2.</p>
+                  </div>
+                  <div className='basis-1/3'>
+                    <img className="object-cover h-64 w-full rounded-xl" src={senam} alt="Tourism Spot 3" />
+                    <p className='text-slate-500 mt-2'>Deskripsi singkat tentang tempat wisata 3.</p>
+                  </div>
+                </div>
+              </div>
+    );
+};
+
+export default Kegiatan;

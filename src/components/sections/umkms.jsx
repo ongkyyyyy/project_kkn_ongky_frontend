@@ -49,7 +49,7 @@ const UMKMs = () => {
 
       <div className="absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1/3 w-full p-2">
         <div className="max-w-5xl mx-auto">
-          <div className="mt-4 mb-10 relative overflow-hidden">
+          <div className="mb-10 relative overflow-hidden">
             <Carousel 
               responsive={responsive}
               draggable={true}
