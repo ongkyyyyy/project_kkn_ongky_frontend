@@ -76,7 +76,7 @@ const Dashboard = () => {
                 Gallery Padukuhan Dompol
               </p>
               <div className='overflow-x-auto'>
-                <div className='flex gap-5 mt-8'>
+                <div className='flex gap-5 mt-8 p-2'>
                   <div className='flex-none w-64'>
                     <img className="object-cover h-64 w-full rounded-xl" src={dompolStadium} alt="Tourism Spot 1" />
                     <p className='text-slate-500 mt-2'>Dompol Stadium</p>
@@ -114,7 +114,7 @@ const Dashboard = () => {
         <Element name="createdBy">
           <section className='px-4 pt-12 pb-12 md:px-8 lg:px-16'>
               <p className='text-3xl font-extrabold font-poppins tracking-tight text-customcp17 sm:text-4xl text-center pb-8'>
-                Dibuat Oleh Kelompok 38 (Dompol) KKN 85
+                Dibuat Oleh Kelompok 38 (Dompol) KKN 85 UAJY
               </p>
               <CreatedBy />
           </section>

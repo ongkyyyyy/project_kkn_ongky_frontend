@@ -13,9 +13,12 @@ const Sejarah = () => {
           <div className="mt-4 mb-10 relative overflow-hidden">
           <div className="text-center bg-white">
             <p className="mt-4 max-w-5xl text-xl text-gray-500 lg:mx-auto tracking-tighter">
-                UMKM berperan penting dalam ekonomi lokal dengan menyediakan lapangan kerja dan meningkatkan pendapatan 
-                melalui usaha seperti kerajinan tangan dan pengolahan makanan tradisional. Meskipun menghadapi tantangan 
-                seperti akses pasar terbatas, UMKM ini terus berkembang melalui inovasi produk dan dukungan dari pemerintah daerah.
+            Padukuhan Dompol memiliki sejarah yang kaya dan berakar dalam kehidupan masyarakat. Pada awalnya, sebelum 
+            kedatangan Belanda, Dompol masih disebut dengan dusun. Dengan perkembangan waktu, dusun ini tumbuh menjadi salah satu 
+            dusun tertua di wilayah Jerukwudel, yang juga dipecah menjadi Karanggede A dan B dan juga Bendo.
+            </p>
+            <p className="mt-4 max-w-5xl text-xl text-gray-500 lg:mx-auto tracking-tighter">
+            
             </p>
             </div>
           </div>

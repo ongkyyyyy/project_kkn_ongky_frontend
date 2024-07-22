@@ -1,31 +1,25 @@
 import { useState } from 'react';
-import { toast } from 'react-toastify';
-import { ToastContainer } from 'react-toastify';
+import { login } from '../../api/apiUser';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 const LoginAdmin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
-    const [successMessage, setSuccessMessage] = useState('');
-    const labelClass = 'block text-customcp11 text-xl font-poppinsserif mb-1 pl-2';
-    const borderClass = 'border-b border-gray-300 px-3 py-2 w-full focus:outline-none focus:border-customcp11'
 
-    const handleRegister = async () => {
-        setError(null);
-        setSuccessMessage('');
-
-        const userData = {
-            username: username,
-            password: password
-        };
-
+    const handleLogin = async () => {
         try {
-            setSuccessMessage('Login Admin successful!');
+            const data = { username, password };
+            const response = await login(data);
+
+            if (response.status) {
+                toast.success(response.message);
+            } else {
+                toast.error(response.message);
+            }
         } catch (error) {
-            setError(error.message);
-            toast.error('Login Admin failed. Please try again.', {
-            });
+            toast.error('Login failed. Please try again.');
         }
     };
 
@@ -38,47 +32,39 @@ const LoginAdmin = () => {
                     <form>
                         <div className="grid grid-cols-1 gap-4">
                             <div className="mb-4">
-                                <label htmlFor="username" className={labelClass}>Username:</label>
+                                <label htmlFor="username" className="block text-customcp11 text-xl font-poppinsserif mb-1 pl-2">Username:</label>
                                 <input
                                     type="text"
                                     id="username"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
-                                    className={borderClass}
+                                    className="border-b border-gray-300 px-3 py-2 w-full focus:outline-none focus:border-customcp11"
                                     placeholder="Enter your username"
                                 />
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="password" className={labelClass}>Password:</label>
+                                <label htmlFor="password" className="block text-customcp11 text-xl font-poppinsserif mb-1 pl-2">Password:</label>
                                 <input
                                     type="password"
                                     id="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className={borderClass}
+                                    className="border-b border-gray-300 px-3 py-2 w-full focus:outline-none focus:border-customcp11"
                                     placeholder="Enter your password"
                                 />
                             </div>
-                          </div>
+                        </div>
                         <div className="flex justify-center">
                             <button
                                 type="button"
-                                onClick={handleRegister}
+                                onClick={handleLogin}
                                 className="bg-customcp16 text-white font-poppinsserif py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
                             >
                                 Login
                             </button>
                         </div>
-                        {error && (
-                            <p className="text-red-500 text-sm mt-4">{error}</p>
-                        )}
-                        {successMessage && (
-                            <p className="text-green-500 text-sm mt-4">{successMessage}</p>
-                        )}
                     </form>
                 </div>
-            </div>
-            <div>
             </div>
             <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
         </>
