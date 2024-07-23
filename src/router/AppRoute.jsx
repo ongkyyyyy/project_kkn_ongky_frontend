@@ -8,6 +8,7 @@ import BeritaManagement from '../pages/Admin/BeritaManagement';
 import UmkmManagement from '../pages/Admin/UmkmManagement';
 import BeritaCustomer from '../pages/Customer/BeritaCustomer';
 import UmkmCustomer from '../pages/Customer/UmkmCustomer';
+import ProtectedRoute from './ProtectedRoute'; 
 
 const router = createBrowserRouter([
   {
@@ -24,8 +25,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'umkms',
-        element: <UmkmCustomer/>,
-      }
+        element: <UmkmCustomer />,
+      },
     ],
   },
   {
@@ -34,7 +35,11 @@ const router = createBrowserRouter([
   },
   {
     path: 'admin',
-    element: <AdminLayout />,
+    element: (
+      <ProtectedRoute>
+        <AdminLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: '',
@@ -47,7 +52,7 @@ const router = createBrowserRouter([
       {
         path: 'umkm',
         element: <UmkmManagement />,
-      }
+      },
     ],
   },
 ]);

@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { login } from '../../api/apiUser';
 import { toast, ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 const LoginAdmin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
@@ -15,6 +17,7 @@ const LoginAdmin = () => {
 
             if (response.status) {
                 toast.success(response.message);
+                navigate('/admin');
             } else {
                 toast.error(response.message);
             }

@@ -24,8 +24,11 @@ export const logout = async (data) => {
         const response = await useAxios.post("/logout", data, {
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
           });
+          localStorage.removeItem('token');
+          
           return response.data;
     } catch (error) {
         console.error('Error logout:', error);

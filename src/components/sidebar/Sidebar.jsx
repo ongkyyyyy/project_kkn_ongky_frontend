@@ -4,6 +4,7 @@ import logo from '../../assets/img/logo.png';
 import { IoIosSpeedometer, IoIosLogOut, IoIosMenu } from 'react-icons/io';
 import { IoMdPaper } from 'react-icons/io'; 
 import { FaStore } from 'react-icons/fa'; 
+import { logout } from '../../api/apiUser';
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -14,6 +15,15 @@ const Sidebar = () => {
     { title: 'Berita', icon: IoMdPaper, to: 'berita' },
     { title: 'UMKM', icon: FaStore, to: 'umkm' },
   ];
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/login');
+    } catch (error) {
+      console.error('Failed to logout:', error);
+    }
+  };
 
   return (
     <div className={`${open ? 'w-72' : 'w-20'} bg-customcp11 flex flex-col justify-between p-5 pt-8 relative duration-300`}>
@@ -43,7 +53,10 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className="p-4">
-        <li className="flex rounded-md p-2 cursor-pointer hover:bg-customcp17 text-gray-300 text-sm items-center gap-x-4" onClick={() => navigate('/logout')}>
+        <li
+          className="flex rounded-md p-2 cursor-pointer hover:bg-customcp17 text-gray-300 text-sm items-center gap-x-4"
+          onClick={handleLogout}
+        >
           <IoIosLogOut size="20" />
           <span className={`${!open && 'hidden'} origin-left duration-200`}>Logout</span>
         </li>

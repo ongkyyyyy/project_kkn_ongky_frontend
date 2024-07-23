@@ -40,7 +40,7 @@ const UMKMs = () => {
 
   return (
     <div className="relative text-center bg-white">
-      <div className="relative bg-fixed bg-parallaxUmkm bg-cover h-96 text-white shadow-md">
+      <div className="relative bg-fixed bg-parallaxUmkm bg-cover h-96 text-customcp14 shadow-md">
         <div className='flex items-center justify-center inset-0 flex-col h-full'>
           <h1 className="text-4xl font-bold text-white shadow-lg">UMKM</h1>
           <p className="text-xl text-white shadow-sm">Berbagai macam UMKM</p>

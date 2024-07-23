@@ -8,6 +8,7 @@ export const indexUmkm = async (query) => {
             params: params,
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
           });
           console.log(response.data.data);
@@ -23,6 +24,7 @@ export const createUmkm = async (data) => {
         const response = await useAxios.post("/umkms", data, {
             headers: {
                 "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
           });
           return response.data;
@@ -38,6 +40,7 @@ export const updateUmkm = async (id, data) => {
         const response = await useAxios.put(`/umkms/${id}`, data, {
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
           });
           console.log(response.data);
@@ -53,6 +56,7 @@ export const updateStatusUmkm = async (id, data) => {
         const response = await useAxios.put(`/umkms/status/${id}`, data, {
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
           });
           return response.data;
@@ -68,6 +72,7 @@ export const deleteUmkm = async (id) => {
         const response = await useAxios.delete(`/umkms/${id}`, {
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
           });
           return response.data;

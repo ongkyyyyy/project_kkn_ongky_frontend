@@ -8,6 +8,7 @@ export const indexBeritas = async (query) => {
             params: params,
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
           });
           console.log(response.data);
@@ -24,6 +25,7 @@ export const createBeritas = async (data) => {
         const response = await useAxios.post("/beritas", data, {
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
         });
         return response.data;
@@ -39,6 +41,7 @@ export const updateBeritas = async (id, data) => {
         const response = await useAxios.put(`/beritas/${id}`, data, {
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
           });
           return response.data;
@@ -53,6 +56,7 @@ export const deleteBeritas = async (id) => {
         const response = await useAxios.delete(`/beritas/${id}`, {
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
           });
           return response.data;

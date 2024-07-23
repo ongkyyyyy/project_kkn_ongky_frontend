@@ -1,6 +1,6 @@
 import { useState, useEffect, lazy } from "react";
 import "react-multi-carousel/lib/styles.css";
-import { ParallaxProvider } from "react-scroll-parallax";
+import { ParallaxProvider} from "react-scroll-parallax";
 import { Element, animateScroll as scroll } from "react-scroll";
 import '../scrollbar.css';
 
@@ -8,15 +8,14 @@ const UMKMs = lazy(() => import('../components/sections/umkms'));
 const CreatedBy = lazy(() => import("../components/sections/createdBy"));
 const Sejarah = lazy(() => import("../components/sections/sejarah"));
 const Lokasi = lazy(() => import("../components/sections/lokasi"));
-const Kegiatan = lazy(() => import("../components/sections/kegiatan"));
 
 //Images
 import senam from '../assets/img/senam.jpg';
-import mancing from '../assets/img/mancing.jpg';
 
 import dompolStadium from '../assets/img/dompolStadium.jpg';
 import pemandangan from '../assets/img/pemandangan.jpg';
 import Landing from "../components/sections/landing";
+import Landing2 from "../components/sections/landing2";
 
 const Dashboard = () => {
   const [showButton, setShowButton] = useState(false);
@@ -39,11 +38,19 @@ const Dashboard = () => {
   return (
     <ParallaxProvider>
       <div className='flex flex-col gap-7 overflow-hidden'>
-        <Element name="home">
+        <Element name="landing">
             <section className='h-screen'>
               <Landing/>
             </section>
         </Element>
+
+
+        <Element name="landing2">
+            <section className="h-full">
+              <Landing2 />
+            </section>
+        </Element>
+
 
         <Element name="sejarah">
             <section className="h-full">
@@ -51,7 +58,7 @@ const Dashboard = () => {
             </section>
         </Element>
 
-        <div className="pt-32"></div>
+        <div className="pt-40"></div>
 
         <Element name="lokasi">
             <section className="h-full">
@@ -59,7 +66,7 @@ const Dashboard = () => {
             </section>
         </Element>
 
-        <div className="pt-48"></div>
+        <div className="pt-40"></div>
 
         <Element name="umkm">
             <section className='h-full'>
@@ -67,12 +74,12 @@ const Dashboard = () => {
             </section>
         </Element>
 
-        <div className="pt-56"></div>
+        <div className="pt-20"></div>
 
         <Element name="kegiatan">
-          <section className='px-4 md:px-8 lg:px-16 h-full'>
+          <section className='px-4 md:px-8 lg:px-16 h-full bg-customcp12'>
             <div className='flex flex-col gap-2'>
-              <p className='text-3xl font-extrabold font-poppins tracking-tight text-customcp17 sm:text-4xl text-center'>
+              <p className='text-3xl font-extrabold font-poppins tracking-tight text-customcp16 sm:text-4xl text-center'>
                 Gallery Padukuhan Dompol
               </p>
               <div className='overflow-x-auto'>
@@ -111,9 +118,11 @@ const Dashboard = () => {
           </section>
         </Element>
 
+        <div className="pt-20"></div>
+
         <Element name="createdBy">
           <section className='px-4 pt-12 pb-12 md:px-8 lg:px-16'>
-              <p className='text-3xl font-extrabold font-poppins tracking-tight text-customcp17 sm:text-4xl text-center pb-8'>
+              <p className='text-3xl font-extrabold font-poppins tracking-tight text-customcp16 sm:text-4xl text-center pb-8'>
                 Dibuat Oleh Kelompok 38 (Dompol) KKN 85 UAJY
               </p>
               <CreatedBy />

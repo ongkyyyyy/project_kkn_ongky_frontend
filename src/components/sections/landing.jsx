@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
 
+import video from '../../assets/video/IMG_3335.mp4';
+
 const Landing = () => {
   useEffect(() => {
     gsap.fromTo(
@@ -17,13 +19,22 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className='flex flex-col items-center justify-center h-full'>
-      <p className='title text-3xl font-extrabold font-poppins tracking-tight text-customcp17 sm:text-4xl'>
-        Selamat Datang di Padukuhan Dompol
-      </p>
-      <p className='description text-lg text-center mt-5'>
-        Padukuhan Dompol adalah salah satu padukuhan di Desa Kedungbanteng, Kecamatan Bojongsari, Kabupaten Purbalingga, Jawa Tengah.
-      </p>
+    <div className='relative h-full w-full'>
+      <video
+        className='absolute top-0 left-0 w-full h-full object-cover'
+        src={video}
+        autoPlay
+        loop
+        muted
+      ></video>
+      <div className='relative flex flex-col items-center justify-center h-full bg-black bg-opacity-50 text-8xl'>
+        <p className='title text-5xl font-extrabold font-poppins tracking-tight text-customcp14'>
+          Selamat Datang
+        </p>
+        <p className='title text-2xl font-bold text-customcp14 pt-1'>
+          di Website Padukuhan Dompol
+        </p>
+      </div>
     </div>
   );
 };
