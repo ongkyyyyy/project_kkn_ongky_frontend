@@ -1,20 +1,44 @@
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import dompol from '../../assets/img/pemandangan.jpg';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Landing2 = () => {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      containerRef.current,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 80%',
+        },
+      }
+    );
+  }, []);
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-white">
-      <div className="max-w-4xl p-6 rounded-lg shadow-lg bg-customcp13">
-        <div className="flex flex-col items-center md:flex-row">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
+      <div ref={containerRef} className="max-w-4xl bg-customcp14 rounded-lg shadow-lg p-6 md:p-12">
+        <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2">
-            <h1 className="text-4xl text-white mb-4 font-poppins font-extrabold">
+            <h1 className="text-5xl text-customcp11 mb-6 font-poppins font-extrabold">
               Padukuhan Dompol
             </h1>
-            <p className="text-white mb-6">
+            <p className="text-lg text-gray-700 mb-8">
               Merupakan padukuhan yang terletak di wilayah Jerukwudel, Kecamatan Girisubo, Kabupaten Gunung Kidul.
             </p>
           </div>
-          <div className="md:w-1/2 mt-8 md:mt-0 ml-4">
-            <img src={dompol} alt="Landing Page Illustration" className="w-96 h-96" />
+          <div className="md:w-1/2 mt-8 md:mt-0 md:ml-8 flex justify-center">
+            <img src={dompol} alt="Landing Page Illustration" className="w-96 h-96 rounded-lg shadow-lg hover:shadow-2xl transition duration-300" />
           </div>
         </div>
       </div>

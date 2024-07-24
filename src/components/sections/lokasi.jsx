@@ -4,11 +4,11 @@ const Lokasi = () => {
   const masjid = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d698.1950113989266!2d110.77217958745854!3d-8.143415003852436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7bc7a99f155d49%3A0x670cc1cf15f40e6b!2sMasjid%20Ar-Rofiah!5e0!3m2!1sid!2sid!4v1721470391126!5m2!1sid!2sid";
 
   return (
-    <div className="relative text-center bg-white">
+    <div className="relative text-center bg-customcp14">
       <div className="relative bg-fixed bg-parallaxLokasi bg-cover h-96 text-white shadow-md">
         <div className='flex items-center justify-center inset-0 flex-col h-full'>
-          <h1 className="text-4xl font-bold">Lokasi penting di Dompol</h1>
-          <p className="text-xl">Titik penting pada Padukuhan Dompol</p>
+          <h1 className="text-4xl font-bold text-shadow-outline font-poppins">Lokasi penting di Dompol</h1>
+          <p className="text-xl text-shadow-outline font-bold">Titik penting pada Padukuhan Dompol</p>
         </div>
       </div>
 
@@ -17,7 +17,7 @@ const Lokasi = () => {
           <div className="mt-16 mb-10 relative overflow-hidden">
             <div className="flex flex-wrap justify-center space-x-4">
               <div className="relative z-10 p-4 flex-shrink-0">
-                <div className="bg-white border-4 border-white shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs">
+                <div className="bg-customcp12 border-4 border-customcp12 shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs">
                   <iframe
                     src={dompolStadium}
                     width="320" 
@@ -30,7 +30,7 @@ const Lokasi = () => {
                 </div>
               </div>
               <div className="relative z-10 p-4 flex-shrink-0">
-                <div className="bg-white border-4 border-white shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs">
+                <div className="bg-customcp12 border-4 border-customcp12 shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs">
                   <iframe
                     src={balaiPadukuhan}
                     width="320" 
@@ -43,7 +43,7 @@ const Lokasi = () => {
                 </div>
               </div>
               <div className="relative z-10 p-4 flex-shrink-0">
-                <div className="bg-white border-4 border-white shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs">
+                <div className="bg-customcp12 border-4 border-customcp12 shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs">
                   <iframe
                     src={masjid}
                     width="320" 

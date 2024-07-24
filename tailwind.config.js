@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      textshadow: {
+        'outline': '2px 2px 8px rgba(0, 0, 0, 0.5)',
+      },
       colors: {
         customcp11: '#084c5c',
         customcp12: '#ffffff',
@@ -40,5 +43,13 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      addUtilities({
+        'text-shadow-outline  ': {
+          'text-shadow': '2px 2px 8px rgba(0, 0, 0, 0.5)',
+        }
+      })
+    }
+  ],
 };

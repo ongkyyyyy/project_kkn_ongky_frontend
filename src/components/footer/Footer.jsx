@@ -74,7 +74,7 @@ const Footer = () => {
             </div>
 
             {/* ini icon2 */}
-            <div className="flex justify-between items-center text-center pt-5 text-[#f7f4e1] text-sm pb-4 bg-customcp16">
+            <div className="flex justify-between items-center text-center pt-5 text-[#f7f4e1] text-sm pb-4 bg-customcp16 pr-8">
                 <span className="ps-7 text-customcp12 font-poppins">© Copyright Dompol 2024</span>
                 <div className="pr-5">
                     {window.location.hash === '' && (
