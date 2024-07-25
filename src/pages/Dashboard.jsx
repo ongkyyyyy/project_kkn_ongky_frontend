@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy } from "react";
+import { useState, useEffect, lazy} from "react";
 import "react-multi-carousel/lib/styles.css";
 import { ParallaxProvider} from "react-scroll-parallax";
 import { Element, animateScroll as scroll } from "react-scroll";
@@ -10,12 +10,12 @@ const Sejarah = lazy(() => import("../components/sections/sejarah"));
 const Lokasi = lazy(() => import("../components/sections/lokasi"));
 
 //Images
-import senam from '../assets/img/senam.jpg';
-
-import dompolStadium from '../assets/img/dompolStadium.jpg';
-import pemandangan from '../assets/img/pemandangan.jpg';
 import Landing from "../components/sections/landing";
 import Landing2 from "../components/sections/landing2";
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Gallery from "../components/sections/gallery";
 
 const Dashboard = () => {
   const [showButton, setShowButton] = useState(false);
@@ -51,6 +51,13 @@ const Dashboard = () => {
             </section>
         </Element>
 
+        <Element>
+          <section>
+            <Gallery/>
+          </section>
+        </Element>
+
+        <div className="pt-56"></div>
 
         <Element name="sejarah">
             <section className="h-full">
@@ -74,60 +81,15 @@ const Dashboard = () => {
             </section>
         </Element>
 
-        <div className="pt-20"></div>
-
-        <Element name="kegiatan">
-          <section className='px-4 md:px-8 lg:px-16 h-full bg-customcp12'>
-            <div className='flex flex-col gap-2'>
-              <p className='text-3xl font-extrabold font-poppins tracking-tight text-customcp16 sm:text-4xl text-center'>
-                Gallery Padukuhan Dompol
-              </p>
-              <div className='overflow-x-auto'>
-                <div className='flex gap-5 mt-8 p-2'>
-                  <div className='flex-none w-64'>
-                    <img className="object-cover h-64 w-full rounded-xl" src={dompolStadium} alt="Tourism Spot 1" />
-                    <p className='text-slate-500 mt-2'>Dompol Stadium</p>
-                  </div>
-                  <div className='flex-none w-64'>
-                    <img className="object-cover h-64 w-full rounded-xl" src={pemandangan} alt="Tourism Spot 2" />
-                    <p className='text-slate-500 mt-2'>Pemandangan Sekitar Padukuhan Dompol.</p>
-                  </div>
-                  <div className='flex-none w-64'>
-                    <img className="object-cover h-64 w-full rounded-xl" src={senam} alt="Tourism Spot 3" />
-                    <p className='text-slate-500 mt-2'>Deskripsi singkat tentang tempat wisata 3.</p>
-                  </div>
-                  <div className='flex-none w-64'>
-                    <img className="object-cover h-64 w-full rounded-xl" src={senam} alt="Tourism Spot 3" />
-                    <p className='text-slate-500 mt-2'>Deskripsi singkat tentang tempat wisata 3.</p>
-                  </div>
-                  <div className='flex-none w-64'>
-                    <img className="object-cover h-64 w-full rounded-xl" src={senam} alt="Tourism Spot 3" />
-                    <p className='text-slate-500 mt-2'>Deskripsi singkat tentang tempat wisata 3.</p>
-                  </div>
-                  <div className='flex-none w-64'>
-                    <img className="object-cover h-64 w-full rounded-xl" src={senam} alt="Tourism Spot 3" />
-                    <p className='text-slate-500 mt-2'>Deskripsi singkat tentang tempat wisata 3.</p>
-                  </div>
-                  <div className='flex-none w-64'>
-                    <img className="object-cover h-64 w-full rounded-xl" src={senam} alt="Tourism Spot 3" />
-                    <p className='text-slate-500 mt-2'>Deskripsi singkat tentang tempat wisata 3.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </Element>
-
-        <div className="pt-20"></div>
+      <div className="pt-10"></div>
 
         <Element name="createdBy">
           <section className='px-4 pt-12 pb-12 md:px-8 lg:px-16'>
-              <p className='text-3xl font-extrabold font-poppins tracking-tight text-customcp16 sm:text-4xl text-center pb-8'>
-                Dibuat Oleh Kelompok 38 (Dompol) KKN 85 UAJY
-              </p>
               <CreatedBy />
           </section>
         </Element>
+
+      <div className="pt-20"></div>
       </div>
 
       {showButton && (

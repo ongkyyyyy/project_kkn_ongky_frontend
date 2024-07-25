@@ -27,11 +27,11 @@ const Landing = () => {
         loop
         muted
       ></video>
-      <div className='relative flex flex-col items-center justify-center h-full bg-black bg-opacity-50 text-8xl'>
-        <p className='title text-5xl font-extrabold font-poppins tracking-tight text-customcp14'>
+      <div className='relative flex flex-col items-center justify-center h-full bg-black bg-opacity-50 px-4 text-center'>
+        <p className='title text-4xl sm:text-5xl font-extrabold font-poppins tracking-tight text-customcp14'>
           Selamat Datang
         </p>
-        <p className='title text-2xl font-bold text-customcp14 pt-1'>
+        <p className='title text-xl sm:text-2xl font-bold text-customcp14 pt-1'>
           di Website Padukuhan Dompol
         </p>
       </div>
