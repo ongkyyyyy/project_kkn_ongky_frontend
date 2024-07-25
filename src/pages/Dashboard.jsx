@@ -1,6 +1,6 @@
-import { useState, useEffect, lazy} from "react";
+import { useState, useEffect, lazy } from "react";
 import "react-multi-carousel/lib/styles.css";
-import { ParallaxProvider} from "react-scroll-parallax";
+import { ParallaxProvider } from "react-scroll-parallax";
 import { Element, animateScroll as scroll } from "react-scroll";
 import '../scrollbar.css';
 
@@ -9,7 +9,7 @@ const CreatedBy = lazy(() => import("../components/sections/createdBy"));
 const Sejarah = lazy(() => import("../components/sections/sejarah"));
 const Lokasi = lazy(() => import("../components/sections/lokasi"));
 
-//Images
+// Images
 import Landing from "../components/sections/landing";
 import Landing2 from "../components/sections/landing2";
 
@@ -39,57 +39,56 @@ const Dashboard = () => {
     <ParallaxProvider>
       <div className='flex flex-col gap-7 overflow-hidden'>
         <Element name="landing">
-            <section className='h-screen'>
-              <Landing/>
-            </section>
+          <section className='h-screen'>
+            <Landing />
+          </section>
         </Element>
 
-
         <Element name="landing2">
-            <section className="h-full">
-              <Landing2 />
-            </section>
+          <section className="h-full">
+            <Landing2 />
+          </section>
         </Element>
 
         <Element>
           <section>
-            <Gallery/>
+            <Gallery />
           </section>
         </Element>
 
-        <div className="pt-56"></div>
+        <div className="pt-10 md:pt-48"></div>
 
         <Element name="sejarah">
-            <section className="h-full">
-              <Sejarah />
-            </section>
-        </Element>
-
-        <div className="pt-40"></div>
-
-        <Element name="lokasi">
-            <section className="h-full">
-              <Lokasi />
-            </section>
-        </Element>
-
-        <div className="pt-40"></div>
-
-        <Element name="umkm">
-            <section className='h-full'>
-              <UMKMs />
-            </section>
-        </Element>
-
-      <div className="pt-10"></div>
-
-        <Element name="createdBy">
-          <section className='px-4 pt-12 pb-12 md:px-8 lg:px-16'>
-              <CreatedBy />
+          <section className="h-full">
+            <Sejarah />
           </section>
         </Element>
 
-      <div className="pt-20"></div>
+        <div className="pt-10 md:pt-32"></div>
+
+        <Element name="lokasi">
+          <section className="h-full">
+            <Lokasi />
+          </section>
+        </Element>
+
+        <div className="pt-20 md:pt-40"></div>
+
+        <Element name="umkm">
+          <section className='h-full'>
+            <UMKMs />
+          </section>
+        </Element>
+
+        <div className="pt-40"></div>
+
+        <Element name="createdBy">
+          <section className='px-2 md:px-4 pt-6 md:pt-12 pb-6 md:pb-12'>
+            <CreatedBy />
+          </section>
+        </Element>
+
+        <div className="pt-10 md:pt-16"></div>
       </div>
 
       {showButton && (

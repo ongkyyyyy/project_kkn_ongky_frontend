@@ -34,16 +34,16 @@ const UMKMs = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1
+      items: 3 
     }
   };
 
   return (
     <div className="relative text-center bg-white">
-      <div className="relative bg-fixed bg-parallaxUmkm bg-cover h-96 text-customcp14 shadow-md">
+      <div className="relative bg-fixed bg-parallaxUmkm bg-cover h-[500px] text-customcp14 shadow-md">
         <div className='flex items-center justify-center inset-0 flex-col h-full text-white'>
-          <h1 className="text-4xl font-bold shadow-lg text-customcp12">UMKM</h1>
-          <p className="text-xl shadow-sm font-bold">Berbagai macam UMKM</p>
+        <h1 className="text-4xl font-bold text-shadow-outline md:text-3xl sm:text-2xl">UMKM</h1>
+        <p className="text-xl text-shadow-outline font-bold md:text-lg sm:text-base">Berbagai macam UMKM</p>
         </div>
       </div>
 
@@ -67,7 +67,7 @@ const UMKMs = () => {
                     <img 
                       src={`http://127.0.0.1:8000/storage/${umkm.foto_umkm}`} 
                       alt={`UMKM ${index}`} 
-                      className="w-80 h-48 object-cover"
+                      className="w-full h-48 object-cover"
                       loading="lazy"
                     />
                     <div className="p-6">
