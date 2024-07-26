@@ -62,7 +62,7 @@ const Gallery = () => {
       <div className="lg:w-5/6">
         <h1 className="text-4xl font-bold text-shadow-outline text-customcp11">Gallery Dompol</h1>
         <h1 className="text-md mt-3 mb-8 text-gray-500 max-w-[45rem]">
-          Whats happening in Dompol? Check out our gallery to see the latest events and activities.
+          Seperti apa lokasi dan kegiatan di Dompol?
         </h1>
 
         <div className="relative overflow-hidden rounded-2xl shadow transition hover:shadow-lg h-[20rem] md:h-[28rem] mt-5 w-full">
@@ -99,10 +99,7 @@ const Gallery = () => {
                 Pemandangan Dompol
               </h3>
               <p className="mt-2 text-sm/relaxed text-white/95 line-clamp-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-                ut consequuntur rerum aut unde aspernatur accusamus
-                assumenda possimus quod nemo, id, sint dolore itaque sed
-                earum, maxime sapiente ab numquam?
+                Pemandangan yang indah di sekitar Padukuhan Dompol
               </p>
             </div>
           </div>
