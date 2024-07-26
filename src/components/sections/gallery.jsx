@@ -58,7 +58,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-3 pl-24 pr-24 lg:pr-40 sm:gap-4 md:gap-5">
+    <div className="flex flex-col lg:flex-row gap-3 pl-6 pr-6 lg:pl-24 lg:pr-40 sm:gap-4 md:gap-5">
       <div className="lg:w-5/6">
         <h1 className="text-4xl font-bold text-shadow-outline text-customcp11">Gallery Dompol</h1>
         <h1 className="text-md mt-3 mb-8 text-gray-500 max-w-[45rem]">
@@ -85,7 +85,7 @@ const Gallery = () => {
         </div>
       </div>
 
-      <div className="flex gap-3 sm:gap-4 md:gap-5 lg:block lg:w-4/6 relative lg:-me-20">
+      <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-5 lg:block lg:w-4/6 relative lg:-me-20">
         <div className="relative overflow-hidden rounded-2xl shadow transition hover:shadow-lg h-64 lg:h-96 lg:mt-5 w-full md:w-1/2 lg:w-5/6">
           <img
             ref={(el) => addToRefs(el, imageRefs)}
@@ -105,7 +105,7 @@ const Gallery = () => {
           </div>
         </div>
 
-        <div className="relative lg:absolute z-10 overflow-hidden rounded-2xl shadow transition hover:shadow-lg h-64 w-full md:w-1/2 lg:w-full lg:mt-5">
+        <div className="relative overflow-hidden rounded-2xl shadow transition hover:shadow-lg h-64 w-full md:w-1/2 lg:w-full lg:mt-5">
           <img
             ref={(el) => addToRefs(el, imageRefs)}
             alt="Senam"

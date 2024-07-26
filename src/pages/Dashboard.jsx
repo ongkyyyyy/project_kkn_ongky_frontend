@@ -56,7 +56,7 @@ const Dashboard = () => {
           </section>
         </Element>
 
-        <div className="pt-10 md:pt-48"></div>
+        <div className="pt-10 md:pt-20"></div>
 
         <Element name="sejarah">
           <section className="h-full">
@@ -64,15 +64,13 @@ const Dashboard = () => {
           </section>
         </Element>
 
-        <div className="pt-10 md:pt-32"></div>
-
         <Element name="lokasi">
           <section className="h-full">
             <Lokasi />
           </section>
         </Element>
 
-        <div className="pt-20 md:pt-40"></div>
+        <div className="pt-32 md:pt-40"></div>
 
         <Element name="umkm">
           <section className='h-full'>

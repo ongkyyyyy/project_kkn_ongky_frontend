@@ -12,15 +12,15 @@ const Lokasi = () => {
         </div>
       </div>
 
-      <div className="absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full p-2">
+      <div className="absolute top-full md:left-[890px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full p-2">
         <div className="max-w-7xl mx-auto">
           <div className="mt-16 mb-10 relative overflow-hidden">
-            <div className="flex flex-wrap justify-center space-x-4">
+            <div className="flex space-x-4 overflow-x-auto pb-2 items-center">
               <div className="relative z-10 p-4 flex-shrink-0">
                 <div className="bg-customcp12 border-4 border-customcp12 shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs">
                   <iframe
                     src={dompolStadium}
-                    className="w-72 h-60 md:w-72 md:h-60 sm:w-36 sm:h-28"
+                    className="w-80 h-60 md:w-72 md:h-60 sm:w-56 sm:h-44 xs:w-48 xs:h-36"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
@@ -32,7 +32,7 @@ const Lokasi = () => {
                 <div className="bg-customcp12 border-4 border-customcp12 shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs">
                   <iframe
                     src={balaiPadukuhan}
-                    className="w-72 h-60 md:w-72 md:h-60 sm:w-36 sm:h-28"
+                    className="w-80 h-60 md:w-72 md:h-60 sm:w-56 sm:h-44 xs:w-48 xs:h-36"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
@@ -44,7 +44,7 @@ const Lokasi = () => {
                 <div className="bg-customcp12 border-4 border-customcp12 shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs">
                   <iframe
                     src={masjid}
-                    className="w-72 h-60 md:w-72 md:h-60 sm:w-36 sm:h-28"
+                    className="w-80 h-60 md:w-72 md:h-60 sm:w-56 sm:h-44 xs:w-48 xs:h-36"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
