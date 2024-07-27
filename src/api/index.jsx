@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = "http://dompol.info";
+export const BASE_URL = "https://dompol.info";
 
 const useAxios = axios.create({
   baseURL: `${BASE_URL}/api`,
