@@ -55,10 +55,9 @@ const BeritaManagement = () => {
         toast.error('Error dalam membuat berita.');
         console.error('Error creating berita:', error);
     }
-};
+  };
 
-
-const handleUpdateBerita = async (id) => {
+  const handleUpdateBerita = async (id) => {
     const formattedDate = format(parse(editedBerita.tanggal, 'dd-MM-yyyy', new Date()), 'yyyy-MM-dd');
     try {
         await updateBeritas(id, { ...editedBerita, tanggal: formattedDate });
@@ -70,14 +69,13 @@ const handleUpdateBerita = async (id) => {
         toast.error('Error dalam mengupdate berita.');
         console.error('Error updating berita:', error);
     }
-};
-
+  };
 
   const handleDeleteBerita = async (id) => {
       try {
           await deleteBeritas(id);
           setBeritas(prevBeritas => prevBeritas.filter(berita => berita.id_berita !== id));
-          toast.success('Berita berhasiil dihapus!');
+          toast.success('Berita berhasil dihapus!');
       } catch (error) {
           toast.error('Error dalam menghapus berita.');
           console.error('Error deleting berita:', error);
@@ -89,27 +87,27 @@ const handleUpdateBerita = async (id) => {
   };
 
   return (
-      <div className="container mx-auto p-10 max-w-5xl">
-          <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-              <h2 className="text-3xl font-bold mb-4">Berita</h2>
+      <div className="container mx-auto p-4 sm:p-6 md:p-8 lg:p-10 max-w-full md:max-w-5xl">
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-3">Berita</h2>
               <p className="text-gray-600">Selamat datang di halaman pengelolaan Berita.</p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-              <h3 className="text-lg font-semibold mb-4">List Berita</h3>
-              <div className="flex items-center mb-4">
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg mb-6">
+              <h3 className="text-lg font-semibold mb-3">List Berita</h3>
+              <div className="flex flex-col sm:flex-row items-center mb-4">
                   <input
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Search Berita..."
-                      className="mr-4 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      className="mb-2 sm:mb-0 sm:mr-4 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 w-full sm:w-64"
                   />
-                  <button onClick={handleSearch} className="bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300">Search</button>
+                  <button onClick={handleSearch} className="bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300 w-full sm:w-auto">Search</button>
               </div>
               <ul className="divide-y divide-gray-200">
                   {beritas.map(berita => (
-                      <li key={berita.id_berita} className="py-4 flex justify-between items-start">
+                      <li key={berita.id_berita} className="py-3 sm:py-4 flex flex-col sm:flex-row justify-between items-start">
                           {editingBerita === berita.id_berita ? (
                               <div className="flex-grow flex flex-col items-start space-y-2">
                                   <input
@@ -125,7 +123,6 @@ const handleUpdateBerita = async (id) => {
                                       placeholder="Deskripsi"
                                       className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none w-full"
                                       rows={4}
-                                      cols={40}
                                   />
                                   <input
                                       type="text"
@@ -134,16 +131,16 @@ const handleUpdateBerita = async (id) => {
                                       placeholder="dd-MM-yyyy"
                                       className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                                   />
-                                  <button onClick={() => handleUpdateBerita(berita.id_berita)} className="bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300">Save</button>
+                                  <button onClick={() => handleUpdateBerita(berita.id_berita)} className="bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300 w-full">Save</button>
                               </div>
                           ) : (
-                              <div className="flex-grow flex items-center justify-between">
-                                  <div>
-                                      <div className="font-semibold">{berita.judul_berita}</div>
+                              <div className="flex-grow flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                                  <div className="mb-2 sm:mb-0">
+                                      <div className="font-semibold text-lg">{berita.judul_berita}</div>
                                       <div className="text-gray-600">{berita.deskripsi}</div>
                                       <div className="text-gray-400 text-sm">{format(new Date(berita.tanggal), 'dd-MM-yyyy')}</div>
                                   </div>
-                                  <div className="space-x-2">
+                                  <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                                       <button onClick={() => {
                                           setEditingBerita(berita.id_berita);
                                           setEditedBerita({
@@ -151,8 +148,8 @@ const handleUpdateBerita = async (id) => {
                                               deskripsi: berita.deskripsi,
                                               tanggal: format(new Date(berita.tanggal), 'dd-MM-yyyy')
                                           });
-                                      }} className="bg-yellow-600 hover:bg-yellow-800 text-white p-2 rounded-lg transition duration-300">Edit</button>
-                                      <button onClick={() => handleDeleteBerita(berita.id_berita)} className="bg-customcp17 hover:bg-red-700 text-white p-2 rounded-lg transition duration-300">Delete</button>
+                                      }} className="bg-yellow-600 hover:bg-yellow-800 text-white p-2 rounded-lg transition duration-300 w-full sm:w-auto">Edit</button>
+                                      <button onClick={() => handleDeleteBerita(berita.id_berita)} className="bg-customcp17 hover:bg-red-700 text-white p-2 rounded-lg transition duration-300 w-full sm:w-auto">Delete</button>
                                   </div>
                               </div>
                           )}
@@ -160,8 +157,8 @@ const handleUpdateBerita = async (id) => {
                   ))}
               </ul>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-              <h3 className="text-lg font-semibold mb-4">Buat Berita Baru</h3>
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg mb-6">
+              <h3 className="text-lg font-semibold mb-3">Buat Berita Baru</h3>
               <div className="space-y-2">
                   <input
                       type="text"
@@ -176,7 +173,6 @@ const handleUpdateBerita = async (id) => {
                       placeholder="Deskripsi"
                       className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
                       rows={4}
-                      cols={40}
                   />
                   <input
                       type="text"

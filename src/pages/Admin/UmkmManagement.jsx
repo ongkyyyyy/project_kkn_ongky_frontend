@@ -119,33 +119,38 @@ const UmkmManagement = () => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setEditedUmkm({ ...editedUmkm, foto_umkm: file });
+    if (file) {
+      setEditedUmkm({ ...editedUmkm, foto_umkm: file });
+    } else {
+      // If no file is selected, keep the existing URL
+      setEditedUmkm({ ...editedUmkm, foto_umkm: editedUmkm.foto_umkm });
+    }
   };
 
   return (
-    <div className="container mx-auto p-10 max-w-5xl">
-      <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-        <h2 className="text-3xl font-bold mb-4">UMKM</h2>
-        <p className="text-gray-600">Selamat datang di halaman pengelolaan UMKM.</p>
+    <div className="container mx-auto p-4 sm:p-6 md:p-8 lg:p-10 max-w-5xl">
+      <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg mb-6">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">UMKM</h2>
+        <p className="text-gray-600 text-sm sm:text-base">Selamat datang di halaman pengelolaan UMKM.</p>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-        <h3 className="text-lg font-semibold mb-4">List UMKM</h3>
-        <div className="flex items-center mb-4">
+      <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg mb-6">
+        <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">List UMKM</h3>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4">
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search UMKM..."
-            className="mr-4 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="mb-2 sm:mb-0 sm:mr-4 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 w-full sm:w-auto"
           />
-          <button onClick={handleSearch} className="bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300">Search</button>
+          <button onClick={handleSearch} className="bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300 w-full sm:w-auto">Search</button>
         </div>
         <ul className="divide-y divide-gray-200">
           {umkms.map(umkm => (
-            <li key={umkm.id_umkm} className="py-4 flex justify-between items-start"> 
+            <li key={umkm.id_umkm} className="py-4 flex flex-col sm:flex-row justify-between items-start space-y-4 sm:space-y-0">
               {editingUmkm === umkm.id_umkm ? (
-                <div className="flex-grow flex flex-col items-start space-y-2">
+                <div className="flex-grow flex flex-col space-y-2">
                   <input
                     type="text"
                     value={editedUmkm.nama_umkm}
@@ -159,7 +164,6 @@ const UmkmManagement = () => {
                     placeholder="Deskripsi"
                     className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none w-full" 
                     rows={4}
-                    cols={40} 
                   />
                   <input
                     type="text"
@@ -175,35 +179,35 @@ const UmkmManagement = () => {
                   />
                   {editedUmkm.foto_umkm && (
                     <img
-                      src={typeof editedUmkm.foto_umkm === 'string' ? `public/storage/${editedUmkm.foto_umkm}` : URL.createObjectURL(editedUmkm.foto_umkm)}
-                      className="w-20 h-20 object-cover mt-2"
+                      src={typeof editedUmkm.foto_umkm === 'string' ? editedUmkm.foto_umkm : URL.createObjectURL(editedUmkm.foto_umkm)}
+                      className="w-32 h-32 sm:w-40 sm:h-40 object-cover mt-2"
                     />
                   )}
                   <button onClick={() => handleUpdateUmkm(umkm.id_umkm)} className="bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300">Save</button>
                 </div>
               ) : (
-                <div className="flex-grow flex items-center justify-between">
-                  <div>
-                    <div className="font-semibold">{umkm.nama_umkm}</div>
-                    <div className="text-gray-600">{umkm.deskripsi_umkm}</div>
-                    <div className="text-gray-600">{umkm.pemilik}</div>
-                    <div className={`text-gray-600 ${umkm.status_umkm === 1 ? 'text-green-500' : 'text-red-500'}`}>
+                <div className="flex-grow flex flex-col sm:flex-row items-start justify-between space-y-2 sm:space-y-0">
+                  <div className="flex flex-col space-y-2">
+                    <div className="font-semibold text-base sm:text-lg">{umkm.nama_umkm}</div>
+                    <div className="text-gray-600 text-sm sm:text-base">{umkm.deskripsi_umkm}</div>
+                    <div className="text-gray-600 text-sm sm:text-base">{umkm.pemilik}</div>
+                    <div className={`text-sm sm:text-base ${umkm.status_umkm === 1 ? 'text-green-500' : 'text-red-500'}`}>
                       {umkm.status_umkm === 1 ? 'Buka' : 'Tutup'}
                     </div>
                     <img
                       src={`https://dompol.info/storage/${umkm.foto_umkm}`}
                       alt={umkm.foto_umkm}
-                      className="w-20 h-20 object-cover mt-2"
+                      className="w-28 h-28 sm:w-36 sm:h-36 object-cover mt-2"
                     />
                   </div>
-                  <div className="space-x-2">
+                  <div className="flex flex-row space-x-2">
                     <button onClick={() => {
                       setEditingUmkm(umkm.id_umkm);
                       setEditedUmkm({ 
                         nama_umkm: umkm.nama_umkm, 
                         deskripsi_umkm: umkm.deskripsi_umkm, 
                         pemilik: umkm.pemilik,
-                        foto_umkm: umkm.foto_umkm
+                        foto_umkm: `https://dompol.info/storage/${umkm.foto_umkm}`
                       });
                     }} className="bg-yellow-600 hover:bg-yellow-800 text-white p-2 rounded-lg transition duration-300">Edit</button>
                     <button onClick={() => handleDeleteUmkm(umkm.id_umkm)} className="bg-customcp17 hover:bg-red-700 text-white p-2 rounded-lg transition duration-300">Delete</button>
@@ -218,8 +222,8 @@ const UmkmManagement = () => {
         </ul>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-        <h3 className="text-lg font-semibold mb-4">Buat UMKM Baru</h3>
+      <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg mb-6">
+        <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Buat UMKM Baru</h3>
         <div className="space-y-2">
           <input
             type="text"
@@ -252,7 +256,7 @@ const UmkmManagement = () => {
             <img
               src={URL.createObjectURL(newUmkm.foto_umkm)}
               alt={newUmkm.foto_umkm.name}
-              className="w-20 h-20 object-cover mt-2"
+              className="w-32 h-32 sm:w-40 sm:h-40 object-cover mt-2"
             />
           )}
           <button onClick={handleCreateUmkm} className="w-full bg-customcp15 hover:bg-customcp16 text-white p-2 rounded-lg transition duration-300">Create UMKM</button>
