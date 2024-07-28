@@ -65,7 +65,7 @@ const UMKMs = () => {
                 <div key={index} className="relative z-10 p-4">
                   <div className="bg-white border-4 border-white shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:z-20 max-w-xs mx-auto">
                     <img 
-                      src={`http://127.0.0.1:8000/storage/${umkm.foto_umkm}`} 
+                      src={`https://dompol.info/storage/${umkm.foto_umkm}`} 
                       alt={`UMKM ${index}`} 
                       className="w-full h-48 object-cover"
                       loading="lazy"

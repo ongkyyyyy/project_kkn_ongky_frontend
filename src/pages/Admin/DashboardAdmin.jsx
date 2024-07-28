@@ -62,7 +62,7 @@ const DashboardAdmin = () => {
           {umkms.slice(0, 3).map((umkm, index) => (
             <li key={index} className="py-2 flex items-center">
               <img
-                src={`http://127.0.0.1:8000/storage/${umkm.foto_umkm}`}
+                src={`https://dompol.info/storage/${umkm.foto_umkm}`}
                 alt={umkm.foto_umkm}
                 className="w-20 h-20 object-cover mt-2 mr-4"
               />

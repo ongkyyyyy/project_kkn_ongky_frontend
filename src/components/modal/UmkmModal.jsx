@@ -17,7 +17,7 @@ const Modal = ({ umkm, closeModal }) => {
 
           <div className="relative p-6">
             <img
-              src={`http://127.0.0.1:8000/storage/${umkm.foto_umkm}`}
+              src={`https://dompol.info/storage/${umkm.foto_umkm}`}
               alt={umkm.nama_umkm}
               className="w-full h-80 object-cover rounded-md mb-4"
             />

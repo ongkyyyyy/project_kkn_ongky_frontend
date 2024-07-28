@@ -191,7 +191,7 @@ const UmkmManagement = () => {
                       {umkm.status_umkm === 1 ? 'Buka' : 'Tutup'}
                     </div>
                     <img
-                      src={`http://127.0.0.1:8000/storage/${umkm.foto_umkm}`}
+                      src={`https://dompol.info/storage/${umkm.foto_umkm}`}
                       alt={umkm.foto_umkm}
                       className="w-20 h-20 object-cover mt-2"
                     />
