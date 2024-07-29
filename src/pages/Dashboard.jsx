@@ -16,6 +16,7 @@ import Landing2 from "../components/sections/landing2";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Gallery from "../components/sections/gallery";
+import Kegiatan from "../components/sections/kegiatan";
 
 const Dashboard = () => {
   const [showButton, setShowButton] = useState(false);
@@ -53,6 +54,14 @@ const Dashboard = () => {
         <Element>
           <section>
             <Gallery />
+          </section>
+        </Element>
+
+        <div className="pt-10 md:pt-20"></div>
+
+        <Element>
+          <section>
+            <Kegiatan/>
           </section>
         </Element>
 
