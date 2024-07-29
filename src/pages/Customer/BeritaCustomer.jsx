@@ -63,9 +63,9 @@ function BeritaCustomer() {
           >
             <div className="px-6 py-4">
               <h4 className="text-xl font-semibold mb-2">{berita.judul_berita}</h4>
-              <div className="flex justify-between items-center">
-                <p className="text-gray-900">{berita.deskripsi}</p>
+              <div className="flex-row justify-between items-center">
                 <p className="text-gray-900">{berita.tanggal}</p>
+                <p className="text-gray-900">{berita.deskripsi}</p>
               </div>
             </div>
           </div>
