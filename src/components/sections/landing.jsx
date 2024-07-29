@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
 
-import video from '../../assets/video/IMG_3335.mp4';
+import video from '../../assets/video/videoDompol.mp4';
 
 const Landing = () => {
   useEffect(() => {
