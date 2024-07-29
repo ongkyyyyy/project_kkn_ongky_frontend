@@ -125,7 +125,7 @@ const Kegiatan = () => {
         </div>
       </div>
 
-      <div className="relative overflow-hidden rounded-2xl shadow transition hover:shadow-lg h-64 w-full md:w-1/2 lg:w-5/6 mt-5">
+      <div className="relative overflow-hidden rounded-2xl shadow transition hover:shadow-lg h-64 w-full md:w-1/2 lg:w-5/6 mt-5 mx-auto">
         <img
           ref={(el) => addToRefs(el, imageRefs)}
           alt="Lomba Voli"
