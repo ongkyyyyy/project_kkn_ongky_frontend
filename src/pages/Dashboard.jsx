@@ -42,12 +42,12 @@ const Dashboard = () => {
         <Element name="landing">
           <section className='h-screen'>
             <Landing />
+            <Landing2 />
           </section>
         </Element>
 
         <Element name="landing2">
-          <section className="h-full">
-            <Landing2 />
+          <section className="h-screen">
           </section>
         </Element>
 
