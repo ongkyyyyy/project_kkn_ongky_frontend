@@ -17,7 +17,7 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className='relative h-full w-full bg-pemandangan'>
+    <div className='relative h-full w-full bg-pemandangan bg-cover'>
       <div className='relative flex flex-col items-center justify-center h-full bg-black bg-opacity-50 px-4 text-center'>
         <p className='title text-4xl sm:text-5xl font-extrabold font-poppins tracking-tight text-customcp14'>
           Selamat Datang
