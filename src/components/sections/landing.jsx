@@ -1,32 +1,37 @@
-import { useEffect } from 'react';
-import { gsap } from 'gsap';
-
+import { useEffect, useRef, useState } from 'react';
 import video from '../../assets/video/videoDompol.mp4';
 
 const Landing = () => {
-  useEffect(() => {
-    gsap.fromTo(
-      '.title',
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
-    );
+  const videoRef = useRef(null);
+  const [isInView, setIsInView] = useState(false);
 
-    gsap.fromTo(
-      '.description',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: 'power2.out' }
-    );
+  useEffect(() => {
+    const handleScroll = () => {
+      if (videoRef.current) {
+        const rect = videoRef.current.getBoundingClientRect();
+        setIsInView(rect.top >= 0 && rect.bottom <= window.innerHeight);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className='relative h-full w-full'>
-      <video
-        className='absolute top-0 left-0 w-full h-full object-cover'
-        src={video}
-        autoPlay
-        loop
-        muted
-      ></video>
+      {isInView && (
+        <video
+          className='absolute top-0 left-0 w-full h-full object-cover'
+          src={video}
+          autoPlay
+          loop
+          muted
+          preload='auto'
+          ref={videoRef}
+        ></video>
+      )}
       <div className='relative flex flex-col items-center justify-center h-full bg-black bg-opacity-50 px-4 text-center'>
         <p className='title text-4xl sm:text-5xl font-extrabold font-poppins tracking-tight text-customcp14'>
           Selamat Datang
