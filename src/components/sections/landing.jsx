@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
 
+import video from '../../assets/video/dompolVideo.mp4';
+
 const Landing = () => {
   useEffect(() => {
     gsap.fromTo(
@@ -17,7 +19,14 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className='relative h-full w-full bg-pemandangan bg-cover'>
+    <div className='relative h-full w-full'>
+      <video
+        className='absolute top-0 left-0 w-full h-full object-cover'
+        src={video}
+        autoPlay
+        loop
+        muted
+      ></video>
       <div className='relative flex flex-col items-center justify-center h-full bg-black bg-opacity-50 px-4 text-center'>
         <p className='title text-4xl sm:text-5xl font-extrabold font-poppins tracking-tight text-customcp14'>
           Selamat Datang

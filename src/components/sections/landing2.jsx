@@ -26,8 +26,8 @@ const Landing2 = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white p-4 sm:p-6 lg:p-8">
-      <div ref={containerRef} className="w-full max-w-4xl bg-customcp14 rounded-lg shadow-lg p-4 sm:p-6 md:p-8 lg:p-12">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-customcp14 p-4 sm:p-6 lg:p-8">
+      <div ref={containerRef} className="w-full max-w-4xl bg-customcp14 p-4 sm:p-6 md:p-8 lg:p-12">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 text-center md:text-left">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl text-customcp11 mb-4 sm:mb-6 font-poppins font-extrabold">

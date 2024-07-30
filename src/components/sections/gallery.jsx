@@ -60,9 +60,9 @@ const Gallery = () => {
   return (
     <div className="flex flex-col lg:flex-row gap-3 pl-6 pr-6 lg:pl-24 lg:pr-40 sm:gap-4 md:gap-5">
       <div className="lg:w-5/6">
-        <h1 className="text-4xl font-bold text-shadow-outline text-customcp11">Pemandangan Dompol</h1>
+        <h1 className="text-4xl font-bold text-shadow-outline text-customcp11">Suasana Dompol</h1>
         <h1 className="text-md mt-3 mb-8 text-gray-500 max-w-[45rem]">
-          Beberapa pemandangan di Padukuhan Dompol.
+          Berikut adalah beberapa foto yang menggambar suasana di Padukuhan Dompol.
         </h1>
 
         <div className="relative overflow-hidden rounded-2xl shadow transition hover:shadow-lg h-[20rem] md:h-[28rem] mt-5 w-full">
@@ -99,7 +99,7 @@ const Gallery = () => {
                 Pemandangan Dompol
               </h3>
               <p className="mt-2 text-sm/relaxed text-white/95 line-clamp-2">
-                Pemandangan Padukuhan Dompol dari Jln. Rongkop.
+                Pemandangan Padukuhan Dompol dari Jln. Rongkop. 
               </p>
             </div>
           </div>
