@@ -26,7 +26,7 @@ const Landing2 = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-customcp14 p-4 sm:p-6 lg:p-8">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-customcp14">
       <div ref={containerRef} className="w-full max-w-4xl bg-customcp14 p-4 sm:p-6 md:p-8 lg:p-12">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 text-center md:text-left">
