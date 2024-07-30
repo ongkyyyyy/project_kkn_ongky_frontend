@@ -41,6 +41,7 @@ export default {
         'orange-carving': 'url(../src/assets/img/orangeCarving.jpeg)',
         'orange-carving2': 'url(../src/assets/img/orangeCarving2.jpeg)',
         'login': 'url(../src/assets/img/login-bg3.png)',
+        'pemandangan': 'url(../src/assets/img/pemandangan.jpg)',
       }
     },
   },
